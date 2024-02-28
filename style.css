@@ -1,0 +1,13 @@
+:root {
+    --main-bg-color: #0B1D26;
+    --primary-color: #fff;
+    --second-color: #FBD784;
+    background-color: var(--main-bg-color);
+}
+
+/* CSS RESET */
+* {
+    margin: 0;
+    padding: 0;
+    color: var(--primary-color)
+}
