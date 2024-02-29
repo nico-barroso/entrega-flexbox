@@ -18,50 +18,61 @@
             <li><a href="#">About us</a></li>
             <li><a href="#">Blog</a></li>
             <!-- Imágen decorativa sin contexto no anunciada -->
-            <li><img src="./assets/account_icon.svg" alt="bl"><a href="#">Account</a></li>
         </ul>
+        <div class="account"><img src="./assets/account_icon.svg" alt="bl"><a href="#">Account</a></div>
     </nav>
     </header>
     <main>
-        <aside>
+        <div class="bg-image-container">
+        <img src="./assets/bg-sky.png" alt="" class="bg-image">
+        <img src="./assets/bg-mountains.png" alt="" class="bg-image">
+        <img src="./assets/bg-grass.png" alt="" class="bg-image">
+    </div>
+        <aside aria-disabled="true">
              <ul>
-                <li><a href="hero">Landing</a></li>
-                <li><a href="started">01. Hiking level </a></li>
-                <li><a href="gear">02. Your gear</a></li>
-                <li><a href="map">03. Take a map</a></li>
+                <li><a href="hero">Start</a></li>
+                <li><a href="started">01 </a></li>
+                <li><a href="gear">02</a></li>
+                <li><a href="map">03</a></li>
              </ul>       
         </aside>
     <section id="hero">
-        <h3>A hiking guide</h3>
+        <span>
         <h1>Be prepared for the mountains and beyond!</h1>
-        <div>scroll down<img src="./assets/arrow_white_downward_24px.svg" alt=""></div>
+        <div class="line-container"><span class="line"></span><h3 class="subtitle">A hiking guide</h3></div>
+        <div class="scroll">scroll down<img src="./assets/arrow_white_downward_24px.svg" alt=""></div>
+        </span>
     </section>
     <section id="content">
-<article class="started">
-    <div>01</div>
-    <h2>What level of hiker are you?</h2>
-    <h3>Get started</h3>
+<article class="content">
+    <div class="number">01</div>
+    <span class="text-container">
+    <h2 class="title">What level of hiker are you?</h2>
+    <div class="line-container"><span class="line"></span><h3 class="subtitle">Get started</h3></div>
     <p>Determining what level of hiker you are can be an important tool when planning future hikes. This hiking level guide will help you plan hikes according to different hike ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you novice, moderate, advanced moderate, expert, or expert backpacker? </p>
       <!-- Imágen decorativa sin contexto no anunciada -->
     <div><a href="#">read more</a><img src="./assets/arrow_downward_24px.svg" alt=""></div>
-    <img src="./assets/01.png" alt="A hiker walking on a mountain trail, surrounded by lush greenery and towering peaks.">
+</span>
+    <img src="./assets/01.png" alt="Hiker on mountain trail amid lush greenery and peaks." class="image-content">
 </article>
-<article class="gear">
+<article class="content">
     <div>02</div>
+    <span class="text-container">
     <h2>Picking the right hiking gear!</h2>
     <h3>Hiking essentials</h3>
     <p>The nice thing about beginning hiking is that you don’t really need any special gear, you can probably get away with things you already have.
-        Let’s start with clothing. A typical mistake hiking beginners make is wearing jeans and regular clothes, which will get heavy and chafe wif they get sweaty or wet.</p>
+        Let’s start with clothing. A typical mistake hiking beginners make is wearing jeans and regular clothes, which will get heavy and chafe wif they get sweaty or wet.</p></span>
     <div><a href="#">read more</a><img src="./assets/arrow_downward_24px.svg" alt=""></div>
-    <img src="./assets/02.png" alt="A hiker triumphantly stands atop a mountain peak, wearing a backpack, surrounded by breathtaking views.">
+    <img src="./assets/02.png" alt="Triumphant hiker atop mountain peak, backpacked, surrounded by breathtaking views." class="image-content">
 </article>
-<article class="map">
+<article class="content">
     <div>03</div>
+    <span class="text-container"><
     <h2>Understand your map & timing</h2>
     <h3>Where you go is the key</h3>
-    <p>To start, print out the hiking guide and map. If it’s raining, throw them in a Zip-Lock bag. Read over the guide, study the map, and have a good idea of what to expect. I like to know what my next landmark is as I hike. For example, I’ll read the guide and know that say, in a mile, I make a right turn at the junction.</p>
+    <p>To start, print out the hiking guide and map. If it’s raining, throw them in a Zip-Lock bag. Read over the guide, study the map, and have a good idea of what to expect. I like to know what my next landmark is as I hike. For example, I’ll read the guide and know that say, in a mile, I make a right turn at the junction.</p></span>
     <div><a href="#">read more</a><img src="./assets/arrow_downward_24px.svg" alt=""></div>
-    <img src="./assets/03.png" alt="A person holding a compass, standing before majestic mountain peaks, ready to embark on an adventure.">
+    <img src="./assets/03.png" alt="Person with compass, ready for adventure amid majestic mountain peaks." class="image-content">
 </article>
 </main>
     </section>
