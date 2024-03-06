@@ -68,27 +68,35 @@ gap: 20px;
 
 /*bg images*/
 .bg-image{
+    width:100%;
+    height:100%;
+}
+.bg-image img{
     z-index: 1;
     position:absolute;
    width:100%;
-   height: auto;
-   background: linear-gradient(330deg, rgba(11, 29, 38, 0.00) 31.06%, #0B1D26 108.93%);
+   height:100%;
+  
+   object-fit: cover;
 }
 
-.bg-image:nth-child(2){
-    padding-top:300px;
-}
-.bg-image:last-child{
-    padding-top:600px;
+
+.bg-image img:nth-child(2){
+    top:30%;
+    border: 1px solid br;
+    }
+.bg-image img:nth-child(3){
+top:30%;
+border: 1px solid blue;
 }
 
 .bg-gradient{
-    position:relative;
+    position:absolute;
     width:100%;
-    height:200px;
-    background-color: aqua;
+    height:300px;
     z-index:3;
-    /* background: linear-gradient(180deg, rgba(11, 29, 38, 0.00) 0%, #0B1D26 61.38%); */
+background: linear-gradient(180deg, rgba(11, 29, 38, 0.00) 0%, #0B1D26 61.38%);
+bottom: 0px;
 }
 
 
@@ -114,7 +122,7 @@ aside li:not(li:first-child) {
  
 /* HERO */
 #hero {
-    background-color: red;
+
     width:100%;
    min-height: 100vh;
     display: flex;
@@ -238,10 +246,19 @@ text-transform: uppercase;
 }
 
 footer{
-    position:relative;
+display: flex;
     bottom: 0;
  display:flex;
     width:100%;
     height:300px;
     background-color:red;
+    justify-content: space-between;
+    padding-top:100px;
 }
+
+.footer-logo{
+    display: flex;
+    flex-flow:column;
+    padding-left:200px;
+    justify-content: space-between;
+} 
