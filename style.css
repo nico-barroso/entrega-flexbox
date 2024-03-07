@@ -18,7 +18,7 @@
     z-index: 2;
     margin: 0;
     padding: 0;
-    color: var(--primary-color)
+   
     
 }
 a:link, a:visited, a:active {
@@ -28,6 +28,7 @@ a:link, a:visited, a:active {
 body{
     max-width:100vw;
     min-height:100vh;
+    color: var(--primary-color)
 }
 
 li{
@@ -40,6 +41,7 @@ header {
    font-family: Gilroy;
    margin-top:64px;
    text-decoration: none;
+   z-index: 3;
 }
 nav{
     /* padding: 60px 80px 0px 80px; */
@@ -68,35 +70,58 @@ gap: 20px;
 
 /*bg images*/
 .bg-image{
+    position: absolute;
     width:100%;
-    height:100%;
+    height:1500px;
+    overflow: hidden;
 }
-.bg-image img{
-    z-index: 1;
-    position:absolute;
+
+.gradient{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(330deg, rgba(11, 29, 38, 0.00) 31.06%, #0B1D26 108.93%); 
+    z-index:3;
+}
+
+
+.sky{
+    
+    background-image: url(./assets/bg-sky.png);
    width:100%;
-   height:100%;
-  
-   object-fit: cover;
+  height:600px;
+   background-size: cover;
+   position:absolute;
 }
 
 
-.bg-image img:nth-child(2){
-    top:30%;
-    border: 1px solid br;
+.mountains{
+    background-image: url(./assets/bg-mountains.png);
+    top:20%;
+    width:100%;
+    height: 1300px;
+    background-size: cover;
+   position:absolute;
+   background-overflow: visible;
     }
-.bg-image img:nth-child(3){
-top:30%;
-border: 1px solid blue;
+
+.grass{
+    background-image: url(./assets/bg-grass.png);
+    top:45%;
+    width:100%;
+    background-size: cover;
+height:800px;
+   z-index: 2;
+   position:absolute;
 }
 
 .bg-gradient{
     position:absolute;
     width:100%;
-    height:300px;
+    height:600px;
     z-index:3;
 background: linear-gradient(180deg, rgba(11, 29, 38, 0.00) 0%, #0B1D26 61.38%);
-bottom: 0px;
+bottom: 0;
 }
 
 
@@ -203,7 +228,7 @@ text-transform: uppercase;
 
 .number{
    position: absolute;
-   left: -50px;
+   left: -100px;
    top:50px;
     font-family: Gilroy;
     font-size:240px;
@@ -249,16 +274,43 @@ footer{
 display: flex;
     bottom: 0;
  display:flex;
-    width:100%;
+    max-width:100%;
     height:300px;
-    background-color:red;
-    justify-content: space-between;
-    padding-top:100px;
+   
+    justify-content: center;
+    padding:200px;
+    gap:20px;
 }
 
-.footer-logo{
+footer .logo{
     display: flex;
     flex-flow:column;
-    padding-left:200px;
     justify-content: space-between;
+    border: solid 1px blue;
+    width:100%;
+    flex-grow: 1;
+
 } 
+footer > .logo> div{
+    font-family: Gilroy;
+    font-size:.8em;
+    display: flex;
+    gap:10px;
+    flex-flow: column;
+}
+footer .logo > ul >li:first-child{
+    max-width:50px;
+}
+/*Añadimos nowrap para que el texto no se encoja*/
+footer .blog, footer .more{
+    display: flex;
+    flex-flow:column;
+    border: solid 1px blue;
+    white-space: nowrap;
+    gap:10px;
+    font-family: Gilroy;
+    font-size:.8em;
+    color: var(--second-color);
+    width:30%;
+}
+
