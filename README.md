@@ -1,4 +1,4 @@
-# entrega-flexbox
+# ThePower - Entrega Flexbox
  En trega de landing page responsive hecha con flexbox.
 <style>
     .prueba{
