@@ -17,7 +17,8 @@ En primer lugar antes de comenzar el proyecto se ha realizado un esquema visual 
 
 <div style="
       display:flex;
-        width:100%
+ flex-flow:row;
+        width:100%;
         justify-content:space-between;
 gap:100px;
 ">
