@@ -49,7 +49,6 @@ li {
 header {
   position: absolute;
   z-index: 3;
-
   width: 100%;
   margin-top: 64px;
   padding-left: 10%;
@@ -57,51 +56,45 @@ header {
   font-family: Gilroy;
   text-decoration: none;
 }
+
 nav {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
   width:100%;
   height:50px;
-
 }
 
-
-nav > ul {
+nav ul {
   display: flex;
   flex-direction: row;
   gap: 20px;
-
   text-decoration: none;
 }
 
-nav > .menu {
+nav .menu {
   display: none;
   width: 30px;
-
-
-
   transform: scaleX(-1);
   object-position: center;
 }
 
-.account {
+nav .account {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 /*bg images*/
-.bg-image {
+.background {
   position: absolute;
   width: 100%;
   height: 1500px;
   overflow: hidden;
 }
 
-.gradient {
+.background .desaturate {
   z-index: 1;
   position: absolute;
   width: 100%;
@@ -113,7 +106,7 @@ nav > .menu {
   );
 }
 
-.sky {
+.background .sky {
   background-image: url(./assets/bg-sky.webp);
   width: 100%;
   height: 600px;
@@ -121,7 +114,7 @@ nav > .menu {
   position: absolute;
 }
 
-.mountains {
+.background .mountains {
   background-image: url(./assets/bg-mountains.webp);
   top: 10%;
   width: 100%;
@@ -131,7 +124,7 @@ nav > .menu {
   transition: 1s;
 }
 
-.grass {
+.background .grass {
   background-image: url(./assets/bg-grass.webp);
   top: 35%;
   width: 100%;
@@ -141,7 +134,7 @@ nav > .menu {
   transition: 1s;
 }
 
-.bg-gradient {
+.background .gradient {
   position: absolute;
   width: 100%;
   height: 50%;
@@ -152,17 +145,14 @@ nav > .menu {
 /* aside */
 
 aside {
-  z-index: 2;
   position: fixed;
   display: flex;
   flex-direction: column;
+  z-index: 2;
   right: 0;
   border-right: 3px solid white;
-  padding-right: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-right: 80px;
-  margin-top: 40vh;
+  margin: 40vh 80px;
+  padding: 20px 30px 20px 0px;
   font-family: Gilroy;
 }
 
@@ -171,65 +161,65 @@ aside li:not(li:first-child) {
   text-align: end;
 }
 
-/* HERO */
 #hero {
-  min-width: 100%;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 20%;
-  padding-right: 20%;
+  min-width: 100%;
+  min-height: 100vh;
+  padding: 0 20% 0;
+  /* padding-left: 20%;
+  padding-right: 20%; */
 }
 
 #hero > * {
-  z-index: 2;
-  width: 70%;
   display: flex;
   flex-flow: column;
-  gap: 32px;
-}
-
-#hero h1 {
-  order: 1;
-  font-family: Chronicle;
-  font-size: 5em;
-  /* 113.636% */
-  text-transform: capitalize;
-  line-height: 100px;
-}
-
-.subtitle {
-  order: 0;
-  color: var(--second-color);
-  font-family: Gilroy;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-  letter-spacing: 6px;
-  text-transform: uppercase;
+  z-index: 2;
+  width: 70%;
+  /* gap: 0%; */
 }
 
 .line-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 32px;
+  gap: 5%;
+  /* gap:32px; */
 }
-.line {
+.line-container .line {
   width: 72px;
   height: 2px;
-  flex-shrink: 0;
   background-color: var(--second-color);
 }
-.scroll {
-  display: flex;
-  order: 1;
+
+.line-container .subtitle {
+  order: 0;
+  text-transform: uppercase;
   font-family: Gilroy;
-  align-items: center;
-  gap: 16px;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: 6px;
+  color: var(--second-color);
 }
+
+#hero h1 {
+  order: 1;
+  text-transform: capitalize;
+  font-family: Chronicle;
+  font-size: 5em;
+  line-height: 100px;
+}
+.scroll {
+  order: 2;
+  display: flex;
+  align-items: center;
+  font-family: Gilroy;
+  gap: 5%;
+}
+
 
 .content-container {
   display: flex;
@@ -299,7 +289,8 @@ aside li:not(li:first-child) {
 }
 
 footer {
-  display: flex;
+  
+  display: flex; 
   bottom: 0;
   flex-direction: row;
   max-width: 100%;
