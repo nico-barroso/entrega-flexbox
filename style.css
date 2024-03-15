@@ -37,6 +37,7 @@
   box-sizing: border-box;
 }
 
+
 a:link,
 a:visited,
 a:active,
@@ -45,6 +46,22 @@ li {
   list-style: none;
   color: var(--primary-color);
 }
+
+
+/* ----------Efectos de selección ----------------*/
+
+h1::selection,
+h2::selection,
+p::selection,
+footer > * ::selection{
+
+color: var(--second-color);
+}
+
+footer h3::selection{
+  color:var(--primary-color);
+}
+
 
 header {
   position: absolute;
@@ -62,8 +79,8 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width:100%;
-  height:50px;
+  width: 100%;
+  height: 50px;
 }
 
 nav ul {
@@ -142,8 +159,6 @@ nav .account {
   bottom: 0px;
 }
 
-/* aside */
-
 aside {
   position: fixed;
   display: flex;
@@ -176,7 +191,7 @@ aside li:not(li:first-child) {
   display: flex;
   flex-flow: column;
   z-index: 2;
-  width: 70%;
+ width:auto;
   /* gap: 0%; */
 }
 
@@ -212,14 +227,19 @@ aside li:not(li:first-child) {
   font-size: 5em;
   line-height: 100px;
 }
-.scroll {
+#hero .scroll {
   order: 2;
   display: flex;
   align-items: center;
   gap: 5%;
   font-family: Gilroy;
+  user-select: none;
+  cursor: pointer;
 }
 
+.scroll img {
+  user-select: none;
+}
 
 #content {
   display: flex;
@@ -239,7 +259,6 @@ aside li:not(li:first-child) {
   height: fit-content;
   column-gap: 10%;
   padding: 0 200px;
-  
 }
 
 .container .number {
@@ -250,6 +269,7 @@ aside li:not(li:first-child) {
   font-size: 240px;
   line-height: 240px;
   opacity: 0.1;
+  user-select: none;
 }
 
 .container .text-container {
@@ -277,6 +297,8 @@ aside li:not(li:first-child) {
   align-items: center;
   order: 3;
   gap: 16px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .readmore a {
@@ -288,6 +310,9 @@ aside li:not(li:first-child) {
   height: 100%;
 }
 
+.container .image-content img:hover{
+  transform: scale(1.5);
+}
 
 footer {
   display: flex;
@@ -297,9 +322,9 @@ footer {
   height: auto;
   bottom: 0;
   padding: 15%;
-  gap:50px;
+  gap: 50px;
   font-family: Gilroy;
-  font-size:.8;
+  font-size: 0.8;
 }
 
 footer .logo {
@@ -308,14 +333,14 @@ footer .logo {
   justify-content: space-between;
   flex-grow: 1;
   width: 50%;
-  height:auto;
+  height: auto;
 }
 
 footer > .logo ul {
-    display: flex;
-    flex-flow: column;
-    gap:10px;
-} 
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
 
 /*Añadimos nowrap para que el texto no se encoja*/
 footer .blog,
@@ -324,30 +349,28 @@ footer .more {
   flex-flow: column;
   white-space: nowrap;
   width: 20%;
-  height:auto;
+  height: auto;
   gap: 10px;
   font-family: Gilroy;
   font-size: 0.8em;
   color: var(--second-color);
 }
 
-footer .blog h3, footer .more h3{
+footer .blog h3,
+footer .more h3 {
   color: var(--second-color);
 }
-
 
 /***TOCA REVISAR MEDIAQUERY **/
 @media all and (max-width: 1300px) {
   aside {
     display: none;
   }
-  .container {
+  #content .container {
     padding-left: 100px;
     padding-right: 100px;
     column-gap: 10%;
   }
-  
-
 }
 
 .title {
@@ -355,51 +378,43 @@ footer .blog h3, footer .more h3{
 }
 
 @media all and (max-width: 1050px) {
-  #content-container {
+  #content {
     column-gap: 100px;
     /* margin-bottom: 500px; */
     flex-wrap: wrap;
   }
-  .container {
-  
-    gap: 40px;
-
+  #content .container {
     justify-content: center;
+    gap: 40px;
   }
 
-  .image-content {
+  .container .image-content {
     object-fit: cover;
-    width:100%;
+    width: 100%;
     height: auto;
   }
-
- 
   /* footer:nth-child(1),
   footer:nth-last-child() {
     display: flex;
     flex-direction: row;
   } */
-  #hero > * {
-    width: 100%;
+  /* #hero h1 {
+    font-size: 3.5em;
+    line-height: 80px;
+  } */
+  .line-container .line{
+    width:20px;
   }
-  #hero h1 {
-    font-size: 4.5em;
-    line-height: 100px;
-  }
-
-  
 }
 
-@media all and (max-width:951px){
+@media all and (max-width: 961px) {
+#content h2{
+  font-size:3em;
+}
 
-  .container{
-    flex-wrap: wrap;
-    gap: 100px;
-  }
-  .image-content {
-   width:70%;
-  }
-
+#content .image-content{
+  min-width:40%;
+}
 }
 
 @media all and (max-width: 813px) {
@@ -412,30 +427,39 @@ footer .blog h3, footer .more h3{
     display: none;
   }
 
-  #hero > * {
-    width:100%;
-  }
-
-  #hero h1{
-    font-size:4em;
+  #hero h1 {
+    font-size: 3.2em;
     line-height: 80px;
   }
-
-
 }
-@media all and (max-width:765px){
-  footer{
-gap:5%;
+
+@media all and (max-width: 775px) {
+  #content .container {
+    flex-wrap: wrap;
+    gap: 100px;
   }
-      
-      footer .logo{
-        width:100%;
-        font-size: .9em;
-      }
-      footer .blog, footer .more{
-        width:fit-content;
-      }
-     
+  .content .image-content {
+    width: 70%;
+  }
+  #hero {
+    padding: 0 15%;
+   }
+  footer {
+    gap: 5%;
+  }
+
+  footer .logo {
+    width: 100%;
+    font-size: 0.9em;
+  }
+  footer .blog,
+  footer .more {
+    width: fit-content;
+  }
+    #content  .container .number{
+    top:-15vh;
+    font-size:10em;
+  }
 }
 
 @media all and (max-width: 600px) {
@@ -450,92 +474,103 @@ gap:5%;
   nav .account {
     display: none;
   }
-  .grass{
+  .background .grass {
     background-position: 15%;
     transition: 1s;
   }
-  .mountains{
+  .background .mountains {
     background-position: 15%;
     transition: 1s;
   }
-#hero {
-  padding-left:10%;
-  padding-right:10%;
-}
 
-  #hero h1{
-    font-size: 3.8em;
+
+  #hero h1 {
+    font-size: 3em;
+    line-height: 65px;
   }
 
-  #hero .line-container{
-    gap:15px;
+  #hero .line-container {
+    gap: 15px;
   }
-  #hero .subtitle{
-font-size:12px;
-  }
-
-  #hero .line{
-    width:40px;
-  }
-  .container{
-
-    padding:0 10% 0 10%;
+  #hero .subtitle {
+    font-size: 12px;
   }
 
-  .image-content{
-    min-width:calc(200px + 20vw);
+  #hero .line {
+    width: 40px;
   }
- 
-  footer .logo{
-    font-size:1em;
+  #content .container {
+    padding: 0 10% 0 10%;
   }
-footer .logo .more{
-  width:fit-content;
-}
- footer{
-    flex-wrap: wrap;
-    justify-content: flex-start;
-   gap:20px;
-height:auto; 
-}
-}
 
-@media all and (max-width:480px){
-  #hero h1{
-    font-size:3.2em;
-    line-height: 60px;
+  .container .image-content {
+    min-width: calc(200px + 20vw);
   }
-}
-
-  @media all and (max-width:380px){
-  #hero h1{
-    font-size:2.6em;
-    line-height: 50px;
-  }
- 
-
-  .container .title{
-    font-size: 2.2em;
-  }
-  .container p{
-    font-size:.9em;
-  }
-  
-  .container .readmore{
-    font-size: .9em;
-  }
-  .container .readmore img{
+  .container .line-container .line{
     width:20px;
   }
-
-  .container .image-content img{
-    width:20%;
- 
+   #hero .line-container .line{
+   display: none;
   }
-  footer{
+  footer .logo {
+    font-size: 1em;
+  }
+  footer .logo .more {
+    width: fit-content;
+  }
+  footer {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height: auto;
+    gap: 20px;
+    height: auto;
+}
+}
+
+@media all and (max-width: 480px) {
+  #hero h1 {
+    font-size: 2.6em;
+    line-height: 60px;
+  }
+
+  #content .line-container .subtitle{
     font-size:.8em;
   }
-  
-} 
- 
+}
 
+@media all and (max-width: 380px) {
+  #hero h1 {
+    font-size: 2.2em;
+    line-height: 50px;
+  }
+
+  #content{
+  gap:120px;
+}
+
+  .container .title {
+    font-size: 2.2em;
+  }
+  .container p {
+    font-size: 0.9em;
+  }
+
+  .container .readmore {
+    font-size: 0.9em;
+  }
+  .container .readmore img {
+    width: 20px;
+  }
+
+  .container .image-content img {
+    width: 20%;
+  }
+   .container .number{
+    left: -15%;
+    font-size:7em;
+  }
+  footer {
+    margin-top:40px;
+    font-size: 0.8em;
+  }
+}
