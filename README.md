@@ -29,7 +29,7 @@ padding-bottom:8px;">Layout</h3>
 <p>Enn primer lugar, se ha simulado el desarrollo de las cajas necesarias en Figma para jerarquizar la información simplificando el proceso de desarrollo.</p>
 <p></p>
 </div>
-<img src="./assets/md-img.jpg" style="
+<img src="https://res.cloudinary.com/dxrczhicp/image/upload/v1710536597/Flexbox/md-img_g83lmp.jpg" style="
 width:40%;">
 </div>
 
