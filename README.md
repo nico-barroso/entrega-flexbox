@@ -26,7 +26,7 @@ gap:100px;
 <h3 style="
 border-bottom: .1px solid;
 padding-bottom:8px;">Layout</h3>
-<p>Enn primer lugar, se ha simulado el desarrollo de las cajas necesarias en Figma para jerarquizar la información simplificando el proceso de desarrollo.</p>
+<p>En primer lugar, se ha simulado el desarrollo de las cajas necesarias en Figma para jerarquizar la información simplificando el proceso de desarrollo.</p>
 <p></p>
 </div>
 <img src="./assets/md-img.jpg" style="
@@ -45,9 +45,3 @@ Para el desarrollo se ha propuesto una metodología "de fuera hacia dentro" no s
 6. Estilos de los elementos siguiendo un órden lógico.
 
 
-### Accesibilidad y diferencias diseño original
-Para la accesibilidad hay que tener en cuenta unos puntos importantes en este proyecto:
-
-El diseño cuenta con limitaciones en su diseño, en este canto cuenta con un **aside** que no otorga mucho contexto semántico, al ser puramente estético se ha optado por aplicarle un **aria-disabled** para que no sea leído por los lectores de pantalla.
-
-Se ha corregido unos 
