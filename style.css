@@ -1,15 +1,34 @@
-/*El CSS se ha organizado con la estructura de Nijin Vinodan
-------------------------------------
-|     Posición y visibilidad        |  
--------------------------------------
-|      Tamaño y propiedades caja    |
--------------------------------------
-|       Background y shadow         |
-------------------------------------
-|         Transformaciones          |
--------------------------------------
-|        Overflow y opacidades...   |
--------------------------------------
+/* 
+-------------- Estructura ------------------
+
+El siguiente archivo CSS está organizado de la siguiente manera:
+
+1. Etiquetas semánticas > id's > contenedores > elementos.
+
+2. En el caso de que existan ataques al mismo contenedor principal varias veces se colocará el contenedor principal una vez y luego el resto de los contenedores con sus elementos para evitar su repetición.
+
+3. La estructura del documento sigue el orden lógico de la web siendo la siguiente:
+
+_____________________
+|      Fuentes      |
+_____________________
+|  root y CSS reset |
+_____________________
+|       efectos     |
+_____________________
+|      header       |
+_____________________
+|       main        |
+_____________________
+|      footer       |
+_____________________
+|    media querys   |
+_____________________
+
+4. Las propiedades se han organizado siguiendo una metodología cercana "de afuera hacia adentro", colocandolo similar
+al siguiente acercamiento:
+
+  Position > Display y sus atributos > Tamaño de caja > Modelo de caja (margin, paddings) > Fuentes > Colores > Otros
 
 */
 
@@ -30,13 +49,11 @@
   color: var(--primary-color);
 }
 
-/* CSS RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 
 a:link,
 a:visited,
@@ -47,29 +64,25 @@ li {
   color: var(--primary-color);
 }
 
-
 /* ----------Efectos de selección ----------------*/
 
 h1::selection,
 h2::selection,
 p::selection,
-footer > * ::selection{
-
-color: var(--second-color);
+footer > * ::selection {
+  color: var(--second-color);
 }
 
-footer h3::selection{
-  color:var(--primary-color);
+footer h3::selection {
+  color: var(--primary-color);
 }
-
 
 header {
   position: absolute;
   z-index: 3;
   width: 100%;
   margin-top: 64px;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 0 10%;
   font-family: Gilroy;
   text-decoration: none;
 }
@@ -159,7 +172,7 @@ nav .account {
   bottom: 0px;
 }
 
-aside {
+.sidebar {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -171,7 +184,7 @@ aside {
   font-family: Gilroy;
 }
 
-aside li:not(li:first-child) {
+.sidebar li:not(li:first-child) {
   padding-top: 20px;
   text-align: end;
 }
@@ -191,7 +204,7 @@ aside li:not(li:first-child) {
   display: flex;
   flex-flow: column;
   z-index: 2;
- width:auto;
+  width: auto;
   /* gap: 0%; */
 }
 
@@ -247,7 +260,6 @@ aside li:not(li:first-child) {
   width: 100%;
   height: fit-content;
   gap: 200px;
-  /* margin-bottom: 300px; */
 }
 #content .container {
   position: relative;
@@ -281,7 +293,7 @@ aside li:not(li:first-child) {
   line-height: normal;
 }
 
-.text-container .title {
+#content .text-container .title {
   display: flex;
   order: 1;
   font-family: Chronicle;
@@ -301,7 +313,7 @@ aside li:not(li:first-child) {
   user-select: none;
 }
 
-.readmore a {
+.text-container .readmore a {
   color: var(--second-color);
 }
 
@@ -310,7 +322,7 @@ aside li:not(li:first-child) {
   height: 100%;
 }
 
-.container .image-content img:hover{
+.container .image-content img:hover {
   transform: scale(1.5);
 }
 
@@ -342,7 +354,6 @@ footer > .logo ul {
   gap: 10px;
 }
 
-/*Añadimos nowrap para que el texto no se encoja*/
 footer .blog,
 footer .more {
   display: flex;
@@ -361,31 +372,30 @@ footer .more h3 {
   color: var(--second-color);
 }
 
-/***TOCA REVISAR MEDIAQUERY **/
-@media all and (max-width: 1300px) {
-  aside {
+@media screen and (max-width: 1300px) {
+  .sidebar{
     display: none;
   }
+  
   #content .container {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: 0 100px;
     column-gap: 10%;
   }
 }
 
-.title {
-  font-size: 50px;
-}
-
-@media all and (max-width: 1050px) {
+@media screen and (max-width: 1050px) {
   #content {
-    column-gap: 100px;
-    /* margin-bottom: 500px; */
     flex-wrap: wrap;
+    column-gap: 100px;
   }
+
   #content .container {
     justify-content: center;
     gap: 40px;
+  }
+
+  .container .line-container .line {
+    width: 20px;
   }
 
   .container .image-content {
@@ -393,28 +403,17 @@ footer .more h3 {
     width: 100%;
     height: auto;
   }
-  /* footer:nth-child(1),
-  footer:nth-last-child() {
-    display: flex;
-    flex-direction: row;
-  } */
-  /* #hero h1 {
-    font-size: 3.5em;
-    line-height: 80px;
-  } */
-  .line-container .line{
-    width:20px;
-  }
 }
 
 @media all and (max-width: 961px) {
-#content h2{
-  font-size:3em;
-}
 
-#content .image-content{
-  min-width:40%;
-}
+  #content .container .title {
+    font-size: 3em;
+  }
+
+  .container .image-content {
+    min-width: 40%;
+  }
 }
 
 @media all and (max-width: 813px) {
@@ -434,38 +433,39 @@ footer .more h3 {
 }
 
 @media all and (max-width: 775px) {
+  #hero {
+    padding: 0 15%;
+  }
+
   #content .container {
     flex-wrap: wrap;
     gap: 100px;
   }
-  .content .image-content {
-    width: 70%;
+
+  .container .number {
+    top: -15vh;
+    font-size: 10em;
   }
-  #hero {
-    padding: 0 15%;
-   }
+
+  .container .image-content {
+    width: 80%;
+  }
   footer {
     gap: 5%;
+    font-size: 0.9em;
   }
 
   footer .logo {
     width: 100%;
-    font-size: 0.9em;
   }
+
   footer .blog,
   footer .more {
     width: fit-content;
   }
-    #content  .container .number{
-    top:-15vh;
-    font-size:10em;
-  }
 }
 
 @media all and (max-width: 600px) {
-  /* header{
-    padding:0 10% 0 10%;
-  } */
   nav .menu {
     display: block;
   }
@@ -474,57 +474,49 @@ footer .more h3 {
   nav .account {
     display: none;
   }
+
   .background .grass {
     background-position: 15%;
     transition: 1s;
   }
+
   .background .mountains {
     background-position: 15%;
     transition: 1s;
   }
-
 
   #hero h1 {
     font-size: 3em;
     line-height: 65px;
   }
 
-  #hero .line-container {
-    gap: 15px;
-  }
   #hero .subtitle {
     font-size: 12px;
   }
 
-  #hero .line {
-    width: 40px;
-  }
   #content .container {
     padding: 0 10% 0 10%;
   }
 
-  .container .image-content {
-    min-width: calc(200px + 20vw);
+  .container .line-container .line {
+    width: 20px;
   }
-  .container .line-container .line{
-    width:20px;
+
+  .line-container .line {
+    display: none;
   }
-   #hero .line-container .line{
-   display: none;
-  }
-  footer .logo {
-    font-size: 1em;
-  }
-  footer .logo .more {
-    width: fit-content;
-  }
+
   footer {
     flex-wrap: wrap;
     justify-content: flex-start;
     height: auto;
     gap: 20px;
     height: auto;
-}
+  }
+
+  footer .logo {
+    font-size: 1em;
+  }
 }
 
 @media all and (max-width: 480px) {
@@ -533,8 +525,8 @@ footer .more h3 {
     line-height: 60px;
   }
 
-  #content .line-container .subtitle{
-    font-size:.8em;
+  #content .line-container .subtitle {
+    font-size: 0.8em;
   }
 }
 
@@ -544,11 +536,12 @@ footer .more h3 {
     line-height: 50px;
   }
 
-  #content{
-  gap:120px;
-}
+  #content {
+    margin-top: 50%;
+    gap: 120px;
+  }
 
-  .container .title {
+  #content .container .title {
     font-size: 2.2em;
   }
   .container p {
@@ -558,19 +551,22 @@ footer .more h3 {
   .container .readmore {
     font-size: 0.9em;
   }
+
   .container .readmore img {
     width: 20px;
   }
 
-  .container .image-content img {
-    width: 20%;
+  .container .image-content {
+    width: 100%;
   }
-   .container .number{
+
+  .container .number {
     left: -15%;
-    font-size:7em;
+    font-size: 7em;
   }
+
   footer {
-    margin-top:40px;
+    margin-top: 40px;
     font-size: 0.8em;
   }
 }
